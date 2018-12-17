@@ -1,0 +1,7 @@
+<fieldset> 
+<%= f.label :title, "タイトル" %> <%= f.text_field :title %><br /> 
+<%= f.label :detail, "詳細" %> <%= f.text_area :detail %><br /> 
+<%= f.label :start, "開始" %> <%= f. datetime_field :start %><br /> 
+<%= f.label :end, "終了" %> <%= f. datetime_field :end %><br /> 
+<%= f.hidden_field :_destroy %> <%= link_to "削除", '#', class: "remove_fields" %> 
+</fieldset>

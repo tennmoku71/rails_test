@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<%= form_tag(events_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :title => nil %>
+<% end %>
+
+<div id="event_list">
+  <%= render partial: 'event_list'%>
+</div>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
+
+<script>
+var
+preFunc = null,
+preInput = '',
+input = '',
+ajaxPost = function(input)
+{
+  $.ajax({
+    url: "events/search",
+    type: "GET",
+    data: ("q=" + input)
+  });
+};
+
+$('#search').on('keyup', function() {
+  input = $.trim($(this).val());
+  if(preInput !== input){
+    clearTimeout(preFunc);
+    preFunc = setTimeout(ajaxPost(input), 500);
+  }
+  preInput = input;
+});
+</script>

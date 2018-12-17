@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<button id='hide_button' class="button">隠す</button>
+<p id='title' class='event'><%= @event.title %></p>
+<p id='detail' class='event'><%= @event.detail %></p>
+<p id='date' class='event'><%= @event.date %></p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
